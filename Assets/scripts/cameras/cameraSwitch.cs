@@ -3,22 +3,28 @@ using UnityEngine;
 public class cameraSwitch : MonoBehaviour
 {
 
-    public GameObject[] Cameras;
+    //public GameObject[] Cameras;
     public GameObject[] ActiveCameras;
+    public bool fullScreen = false;
 
-    void Update()
+    public void UpdateActives()
     {
-        for (int i = 0; i < Cameras.Length; i++)
+        int isOn = 0;
+        for (int i = 0; i < ActiveCameras.Length; i++)
         {
-            if (Cameras[i].activeInHierarchy == true)
+            if (ActiveCameras[i].activeSelf == true)
             {
-               
+                isOn++;
             }
-            //if (ActiveCameras[i] != null)
-            //{
-            //    ActiveCameras[i].SetActive(true);
-            //}
         }
+
+        if (isOn == ActiveCameras.Length)
+        {
+            fullScreen = true;
+        }
+
+        Debug.Log(isOn);
+
     }
 
 }

@@ -137,7 +137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &48081883
 Transform:
   m_ObjectHideFlags: 0
@@ -146,13 +146,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 48081882}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.9006489, y: -0.10473263, z: 0.13437001, w: 0.3997593}
+  m_LocalRotation: {x: -0.7212011, y: -0.04330818, z: -0.09661017, w: -0.6845875}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.20576128, y: 0.20576127, z: 0.20576128}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2104784570}
-  m_LocalEulerAnglesHint: {x: 48.437, y: -193.805, z: 187.032}
+  m_LocalEulerAnglesHint: {x: 78.26, y: -257.50702, z: 106.836}
 --- !u!114 &48081884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,19 +293,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e96c565b685994a9bf11110e1fbf4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::cameraSwitch
-  Cameras:
-  - {fileID: 330585543}
-  - {fileID: 2062728679}
-  - {fileID: 1709139390}
-  - {fileID: 48081882}
-  - {fileID: 328326489}
-  - {fileID: 732819799}
-  - {fileID: 1017373201}
   ActiveCameras:
   - {fileID: 330585543}
   - {fileID: 2062728679}
   - {fileID: 1709139390}
   - {fileID: 48081882}
+  fullScreen: 0
 --- !u!4 &317049949
 Transform:
   m_ObjectHideFlags: 0
@@ -990,7 +983,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 36dafb93aa6930a41b841d21a23b7a45, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1051,7 +1044,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::camerasFuncs
   whatCameraAttechedTo: {fileID: 328326489}
-  camera1: {fileID: 0}
+  CameraSwitch: {fileID: 317049948}
+  camera1: {fileID: 1658576212}
+  camera2: {fileID: 0}
+  isClicked: 0
 --- !u!1001 &628583177
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1281,7 +1277,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::camerasFuncs
   whatCameraAttechedTo: {fileID: 2062728679}
+  CameraSwitch: {fileID: 317049948}
   camera1: {fileID: 1860931521}
+  camera2: {fileID: 0}
+  isClicked: 0
 --- !u!1 &732819799
 GameObject:
   m_ObjectHideFlags: 0
@@ -1497,7 +1496,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 36dafb93aa6930a41b841d21a23b7a45, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1558,7 +1557,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::camerasFuncs
   whatCameraAttechedTo: {fileID: 1017373201}
-  camera1: {fileID: 0}
+  CameraSwitch: {fileID: 317049948}
+  camera1: {fileID: 1827311048}
+  camera2: {fileID: 0}
+  isClicked: 0
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1842,7 +1844,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1709139391
 Transform:
   m_ObjectHideFlags: 0
@@ -2061,7 +2063,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 36dafb93aa6930a41b841d21a23b7a45, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2122,7 +2124,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::camerasFuncs
   whatCameraAttechedTo: {fileID: 732819799}
-  camera1: {fileID: 0}
+  CameraSwitch: {fileID: 317049948}
+  camera1: {fileID: 614779852}
+  camera2: {fileID: 0}
+  isClicked: 0
 --- !u!1 &1860931521 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 36dafb93aa6930a41b841d21a23b7a45, type: 3}
@@ -2163,7 +2168,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::camerasFuncs
   whatCameraAttechedTo: {fileID: 330585543}
-  camera1: {fileID: 0}
+  CameraSwitch: {fileID: 317049948}
+  camera1: {fileID: 330585543}
+  camera2: {fileID: 0}
+  isClicked: 0
 --- !u!1 &1917892289 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 36dafb93aa6930a41b841d21a23b7a45, type: 3}
@@ -2209,7 +2217,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2062728680
 Transform:
   m_ObjectHideFlags: 0
@@ -2406,7 +2414,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 36dafb93aa6930a41b841d21a23b7a45, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2462,7 +2470,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::camerasFuncs
   whatCameraAttechedTo: {fileID: 1709139390}
-  camera1: {fileID: 0}
+  CameraSwitch: {fileID: 317049948}
+  camera1: {fileID: 677533157}
+  camera2: {fileID: 0}
+  isClicked: 0
 --- !u!1001 &2104784569
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2485,15 +2496,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 36dafb93aa6930a41b841d21a23b7a45, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.75
+      value: 1.007
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 36dafb93aa6930a41b841d21a23b7a45, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.86
+      value: 0.067
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 36dafb93aa6930a41b841d21a23b7a45, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.92
+      value: -1.182
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 36dafb93aa6930a41b841d21a23b7a45, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2533,7 +2544,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 36dafb93aa6930a41b841d21a23b7a45, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2589,7 +2600,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::camerasFuncs
   whatCameraAttechedTo: {fileID: 48081882}
-  camera1: {fileID: 0}
+  CameraSwitch: {fileID: 317049948}
+  camera1: {fileID: 1917892289}
+  camera2: {fileID: 0}
+  isClicked: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
