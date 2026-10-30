@@ -1,4 +1,4 @@
-using UnityEngine;
+п»їusing UnityEngine;
 using UnityEngine.EventSystems;
 using System.Linq;
 using UnityEngine;
@@ -7,14 +7,14 @@ public class camerasFuncs : MonoBehaviour
 {
     public GameObject whatCameraAttechedTo;
     public cameraSwitch CameraSwitch;
-    public GameObject camera1; // камера, с которой идет сигнал
+    public GameObject camera1; // РєР°РјРµСЂР°, СЃ РєРѕС‚РѕСЂРѕР№ РёРґРµС‚ СЃРёРіРЅР°Р»
     public GameObject camera2;
 
     private void OnMouseDown()
     {
         //7.34
-        
-        CheckCameraRay(camera1.GetComponentInChildren<Camera>(), camera1); // проверка, идет ли сигнал от камеры с которой мы смотрим
+
+        CheckCameraRay(camera1.GetComponentInChildren<Camera>(), camera1); // РїСЂРѕРІРµСЂРєР°, РёРґРµС‚ Р»Рё СЃРёРіРЅР°Р» РѕС‚ РєР°РјРµСЂС‹ СЃ РєРѕС‚РѕСЂРѕР№ РјС‹ СЃРјРѕС‚СЂРёРј
         CheckCameraRay(camera2.GetComponentInChildren<Camera>(), camera2);
     }
 
@@ -29,28 +29,28 @@ public class camerasFuncs : MonoBehaviour
         gameObject.GetComponent<Outline>().OutlineWidth = 0f;
     }
 
-    //алгоритм проверки камер вообще:
-    //    тыкается камера, активируется этот скрипт
-    //        проверяются все возможные камеры, с которых может прийти сигнал в радиусе видимости этой камеры
-    //        если сигнал есть, записываем данные (рект для камеры, активность, саму камеру)
-    //        просчитываем сколько камер на данный момент активно (чекаем массив активных камер на наличие активных первых 4 камер для фулл комплекта я ебала)
-    //        если у нас не активно 4 камеры - запускаем по порядку камеры (просто запускаем камеру, которая была тыкнута)
-    //        если у нас активны все 4 камеры:
-    //            проверка на то какие камеры есть
-    //            проверка на то, какая камера ща готовится врубиться 
-    //            если есть дубликат той камеры, которая готовится врубится:
-    //                получаем данные рект камеры дубликата
-    //                получаем данные рект камеры которая будет активироваться
-    //                шафлим между собой
-    //            если дубликата нет:
-    //                берем рект камеры которая будет заменяться
-    //                заменяем рект камеры которая будет включена на рект который только что получили
-    //                вырубаем активность камеры которую заменили от греха подальше
-    //                врубаем камеру которая врубается
+    //Р°Р»РіРѕСЂРёС‚Рј РїСЂРѕРІРµСЂРєРё РєР°РјРµСЂ РІРѕРѕР±С‰Рµ:
+    //    С‚С‹РєР°РµС‚СЃСЏ РєР°РјРµСЂР°, Р°РєС‚РёРІРёСЂСѓРµС‚СЃСЏ СЌС‚РѕС‚ СЃРєСЂРёРїС‚
+    //        РїСЂРѕРІРµСЂСЏСЋС‚СЃСЏ РІСЃРµ РІРѕР·РјРѕР¶РЅС‹Рµ РєР°РјРµСЂС‹, СЃ РєРѕС‚РѕСЂС‹С… РјРѕР¶РµС‚ РїСЂРёР№С‚Рё СЃРёРіРЅР°Р» РІ СЂР°РґРёСѓСЃРµ РІРёРґРёРјРѕСЃС‚Рё СЌС‚РѕР№ РєР°РјРµСЂС‹
+    //        РµСЃР»Рё СЃРёРіРЅР°Р» РµСЃС‚СЊ, Р·Р°РїРёСЃС‹РІР°РµРј РґР°РЅРЅС‹Рµ (СЂРµРєС‚ РґР»СЏ РєР°РјРµСЂС‹, Р°РєС‚РёРІРЅРѕСЃС‚СЊ, СЃР°РјСѓ РєР°РјРµСЂСѓ)
+    //        РїСЂРѕСЃС‡РёС‚С‹РІР°РµРј СЃРєРѕР»СЊРєРѕ РєР°РјРµСЂ РЅР° РґР°РЅРЅС‹Р№ РјРѕРјРµРЅС‚ Р°РєС‚РёРІРЅРѕ (С‡РµРєР°РµРј РјР°СЃСЃРёРІ Р°РєС‚РёРІРЅС‹С… РєР°РјРµСЂ РЅР° РЅР°Р»РёС‡РёРµ Р°РєС‚РёРІРЅС‹С… РїРµСЂРІС‹С… 4 РєР°РјРµСЂ РґР»СЏ С„СѓР»Р» РєРѕРјРїР»РµРєС‚Р° СЏ РµР±Р°Р»Р°)
+    //        РµСЃР»Рё Сѓ РЅР°СЃ РЅРµ Р°РєС‚РёРІРЅРѕ 4 РєР°РјРµСЂС‹ - Р·Р°РїСѓСЃРєР°РµРј РїРѕ РїРѕСЂСЏРґРєСѓ РєР°РјРµСЂС‹ (РїСЂРѕСЃС‚Рѕ Р·Р°РїСѓСЃРєР°РµРј РєР°РјРµСЂСѓ, РєРѕС‚РѕСЂР°СЏ Р±С‹Р»Р° С‚С‹РєРЅСѓС‚Р°)
+    //        РµСЃР»Рё Сѓ РЅР°СЃ Р°РєС‚РёРІРЅС‹ РІСЃРµ 4 РєР°РјРµСЂС‹:
+    //            РїСЂРѕРІРµСЂРєР° РЅР° С‚Рѕ РєР°РєРёРµ РєР°РјРµСЂС‹ РµСЃС‚СЊ
+    //            РїСЂРѕРІРµСЂРєР° РЅР° С‚Рѕ, РєР°РєР°СЏ РєР°РјРµСЂР° С‰Р° РіРѕС‚РѕРІРёС‚СЃСЏ РІСЂСѓР±РёС‚СЊСЃСЏ 
+    //            РµСЃР»Рё РµСЃС‚СЊ РґСѓР±Р»РёРєР°С‚ С‚РѕР№ РєР°РјРµСЂС‹, РєРѕС‚РѕСЂР°СЏ РіРѕС‚РѕРІРёС‚СЃСЏ РІСЂСѓР±РёС‚СЃСЏ:
+    //                РїРѕР»СѓС‡Р°РµРј РґР°РЅРЅС‹Рµ СЂРµРєС‚ РєР°РјРµСЂС‹ РґСѓР±Р»РёРєР°С‚Р°
+    //                РїРѕР»СѓС‡Р°РµРј РґР°РЅРЅС‹Рµ СЂРµРєС‚ РєР°РјРµСЂС‹ РєРѕС‚РѕСЂР°СЏ Р±СѓРґРµС‚ Р°РєС‚РёРІРёСЂРѕРІР°С‚СЊСЃСЏ
+    //                С€Р°С„Р»РёРј РјРµР¶РґСѓ СЃРѕР±РѕР№
+    //            РµСЃР»Рё РґСѓР±Р»РёРєР°С‚Р° РЅРµС‚:
+    //                Р±РµСЂРµРј СЂРµРєС‚ РєР°РјРµСЂС‹ РєРѕС‚РѕСЂР°СЏ Р±СѓРґРµС‚ Р·Р°РјРµРЅСЏС‚СЊСЃСЏ
+    //                Р·Р°РјРµРЅСЏРµРј СЂРµРєС‚ РєР°РјРµСЂС‹ РєРѕС‚РѕСЂР°СЏ Р±СѓРґРµС‚ РІРєР»СЋС‡РµРЅР° РЅР° СЂРµРєС‚ РєРѕС‚РѕСЂС‹Р№ С‚РѕР»СЊРєРѕ С‡С‚Рѕ РїРѕР»СѓС‡РёР»Рё
+    //                РІС‹СЂСѓР±Р°РµРј Р°РєС‚РёРІРЅРѕСЃС‚СЊ РєР°РјРµСЂС‹ РєРѕС‚РѕСЂСѓСЋ Р·Р°РјРµРЅРёР»Рё РѕС‚ РіСЂРµС…Р° РїРѕРґР°Р»СЊС€Рµ
+    //                РІСЂСѓР±Р°РµРј РєР°РјРµСЂСѓ РєРѕС‚РѕСЂР°СЏ РІСЂСѓР±Р°РµС‚СЃСЏ
 
     void CheckCameraRay(Camera cam, GameObject cameraObject)
     {
-        if (cam == null && cameraObject == null) return; //на случай если развилки нет
+        if (cam == null && cameraObject == null) return; //РЅР° СЃР»СѓС‡Р°Р№ РµСЃР»Рё СЂР°Р·РІРёР»РєРё РЅРµС‚
 
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hit))
@@ -59,14 +59,14 @@ public class camerasFuncs : MonoBehaviour
             {
                 CameraSwitch.UpdateActives();
 
-                if (CameraSwitch.fullScreen == true) // если все 4 камеры открыты
+                if (CameraSwitch.fullScreen == true) // РµСЃР»Рё РІСЃРµ 4 РєР°РјРµСЂС‹ РѕС‚РєСЂС‹С‚С‹
                 {
-                    if (CameraSwitch.ActiveCameras.Contains<GameObject>(whatCameraAttechedTo)) // если есть дубликат
+                    if (CameraSwitch.ActiveCameras.Contains<GameObject>(whatCameraAttechedTo)) // РµСЃР»Рё РµСЃС‚СЊ РґСѓР±Р»РёРєР°С‚
                     {
-                        Debug.Log("дубликат есть");
+                        Debug.Log("РґСѓР±Р»РёРєР°С‚ РµСЃС‚СЊ");
                         Rect storeRect = cam.rect;
 
-                        for (int i = 0; i < CameraSwitch.ActiveCameras.Length; i++)
+                        for (int i = 0; i < CameraSwitch.ActiveCameras.Count; i++)
                         {
                             if (CameraSwitch.ActiveCameras[i] == whatCameraAttechedTo)
                             {
@@ -75,13 +75,13 @@ public class camerasFuncs : MonoBehaviour
                             }
                         }
                     }
-                    else // если нет дубликата
+                    else // РµСЃР»Рё РЅРµС‚ РґСѓР±Р»РёРєР°С‚Р°
                     {
-                        Debug.Log("дубликата нет");
+                        Debug.Log("РґСѓР±Р»РёРєР°С‚Р° РЅРµС‚");
 
                         whatCameraAttechedTo.SetActive(true);
                         whatCameraAttechedTo.GetComponent<Camera>().rect = cam.rect;
-                        for (int i = 0; i < CameraSwitch.ActiveCameras.Length; i++)
+                        for (int i = 0; i < CameraSwitch.ActiveCameras.Count; i++)
                         {
                             if (CameraSwitch.ActiveCameras[i] == cameraObject.transform.GetChild(0).gameObject)
                             {
@@ -93,8 +93,43 @@ public class camerasFuncs : MonoBehaviour
                 }
                 else
                 {
-                    gameObject.transform.GetChild(0).gameObject.SetActive(true);
-                    CameraSwitch.UpdateActives();
+                    if (CameraSwitch.ActiveCameras.Contains<GameObject>(whatCameraAttechedTo)) // РµСЃР»Рё РµСЃС‚СЊ РґСѓР±Р»РёРєР°С‚
+                    {
+                        Debug.Log("РґСѓР±Р»РёРєР°С‚ РµСЃС‚СЊ - РЅРѕ РѕРєРЅР° РЅРµ РІСЃРµ");
+                        Rect storeRect = cam.rect;
+
+                        for (int i = 0; i < CameraSwitch.ActiveCameras.Count; i++)
+                        {
+                            if (CameraSwitch.ActiveCameras[i] == whatCameraAttechedTo)
+                            {
+                                cam.rect = whatCameraAttechedTo.GetComponent<Camera>().rect;
+                                whatCameraAttechedTo.GetComponent<Camera>().rect = storeRect;
+                            }
+                        }
+                    }
+                    else // РµСЃР»Рё РЅРµС‚ РґСѓР±Р»РёРєР°С‚Р°
+                    {
+                        Debug.Log("РґСѓР±Р»РёРєР°С‚Р° РЅРµС‚ - РЅРѕ РѕРєРЅР° РЅРµ РІСЃРµ");
+                        CameraSwitch.ActiveCameras.Add(whatCameraAttechedTo);
+                        if (CameraSwitch.ActiveCameras[1] == whatCameraAttechedTo)
+                        {
+                            whatCameraAttechedTo.GetComponent<Camera>().rect = new Rect(0.5f, 0.5f, 0.5f, 0.5f);
+                            gameObject.transform.GetChild(0).gameObject.SetActive(true);
+                        }
+                        else if (CameraSwitch.ActiveCameras[2] == whatCameraAttechedTo)
+                        {
+                            whatCameraAttechedTo.GetComponent<Camera>().rect = new Rect(0, 0, 0.5f, 0.5f);
+                            gameObject.transform.GetChild(0).gameObject.SetActive(true);
+                        }
+                        else if (CameraSwitch.ActiveCameras[3] == whatCameraAttechedTo)
+                        {
+                            whatCameraAttechedTo.GetComponent<Camera>().rect = new Rect(0.5f, 0, 0.5f, 0.5f);
+                            gameObject.transform.GetChild(0).gameObject.SetActive(true);
+
+                        }
+                    }
+
+                    
 
                 }
 

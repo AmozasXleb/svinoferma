@@ -1,29 +1,21 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class cameraSwitch : MonoBehaviour
 {
 
     //public GameObject[] Cameras;
-    public GameObject[] ActiveCameras;
+    public List<GameObject> ActiveCameras;
     public bool fullScreen = false;
 
     public void UpdateActives()
     {
-        int isOn = 0;
-        for (int i = 0; i < ActiveCameras.Length; i++)
-        {
-            if (ActiveCameras[i].activeSelf == true)
-            {
-                isOn++;
-            }
-        }
 
-        if (isOn == ActiveCameras.Length)
+        if (4 == ActiveCameras.Count)
         {
             fullScreen = true;
         }
-
-        Debug.Log(isOn);
+        
 
     }
 
