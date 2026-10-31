@@ -51,6 +51,8 @@ public class camerasFuncs : MonoBehaviour
     void CheckCameraRay(Camera cam, GameObject cameraObject)
     {
         if (cam == null && cameraObject == null) return; //на случай если развилки нет
+        Debug.Log(cameraObject);
+        Debug.Log(gameObject.name);
 
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hit))
@@ -86,7 +88,7 @@ public class camerasFuncs : MonoBehaviour
                             if (CameraSwitch.ActiveCameras[i] == cameraObject.transform.GetChild(0).gameObject)
                             {
                                 CameraSwitch.ActiveCameras[i] = whatCameraAttechedTo;
-                                cameraObject.transform.GetChild(0).gameObject.SetActive(false);
+                                //cameraObject.transform.GetChild(0).gameObject.SetActive(false);
                             }
                         }
                     }

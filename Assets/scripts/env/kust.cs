@@ -15,12 +15,12 @@ public class kust : MonoBehaviour
 
     private void OnMouseExit()
     {
-
-            gameObject.GetComponent<Outline>().OutlineWidth = 0f;
+        gameObject.GetComponent<Outline>().OutlineWidth = 0f;
     }
 
     public void OnMouseDown()
     {
+
         if (isClicked == false)
         {
             camera.SetActive(true);
