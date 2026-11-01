@@ -1567,9 +1567,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::cameraSwitch
   ActiveCameras:
   - {fileID: 330585543}
-  - {fileID: 1017373201}
-  - {fileID: 1085862886}
-  - {fileID: 637645858}
   fullScreen: 0
 --- !u!4 &317049949
 Transform:
@@ -2020,6 +2017,8 @@ MonoBehaviour:
   CameraSwitch: {fileID: 317049948}
   camera1: {fileID: 677533157}
   camera2: {fileID: 1469777975}
+  camera3: {fileID: 0}
+  outlineHoverWidth: 7.34
 --- !u!114 &351573130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2032,7 +2031,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Outline
-  outlineMode: 0
+  outlineMode: 1
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 0
   precomputeOutline: 0
@@ -3593,6 +3592,8 @@ MonoBehaviour:
   CameraSwitch: {fileID: 317049948}
   camera1: {fileID: 2095670747}
   camera2: {fileID: 0}
+  camera3: {fileID: 0}
+  outlineHoverWidth: 7.34
 --- !u!114 &603320347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3605,7 +3606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Outline
-  outlineMode: 0
+  outlineMode: 1
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 0
   precomputeOutline: 0
@@ -4110,7 +4111,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &637645859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4634,6 +4635,8 @@ MonoBehaviour:
   CameraSwitch: {fileID: 317049948}
   camera1: {fileID: 1860931521}
   camera2: {fileID: 351573125}
+  camera3: {fileID: 0}
+  outlineHoverWidth: 7.34
 --- !u!114 &677533164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5556,6 +5559,8 @@ MonoBehaviour:
   CameraSwitch: {fileID: 317049948}
   camera1: {fileID: 843214210747511456}
   camera2: {fileID: 3880853801570820639}
+  camera3: {fileID: 0}
+  outlineHoverWidth: 7.34
 --- !u!114 &740491983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5568,7 +5573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Outline
-  outlineMode: 0
+  outlineMode: 1
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 0
   precomputeOutline: 0
@@ -6295,6 +6300,8 @@ MonoBehaviour:
   CameraSwitch: {fileID: 317049948}
   camera1: {fileID: 677533157}
   camera2: {fileID: 1917892289}
+  camera3: {fileID: 0}
+  outlineHoverWidth: 7.34
 --- !u!114 &798086730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8441,7 +8448,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1017373202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8899,7 +8906,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1085862887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12532,6 +12539,8 @@ MonoBehaviour:
   CameraSwitch: {fileID: 317049948}
   camera1: {fileID: 351573125}
   camera2: {fileID: 0}
+  camera3: {fileID: 0}
+  outlineHoverWidth: 7.34
 --- !u!114 &1469777980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12544,7 +12553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Outline
-  outlineMode: 0
+  outlineMode: 1
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 0
   precomputeOutline: 0
@@ -14806,6 +14815,8 @@ MonoBehaviour:
   CameraSwitch: {fileID: 317049948}
   camera1: {fileID: 1936667938}
   camera2: {fileID: 740491979}
+  camera3: {fileID: 0}
+  outlineHoverWidth: 7.34
 --- !u!1 &1740475075
 GameObject:
   m_ObjectHideFlags: 0
@@ -15466,6 +15477,8 @@ MonoBehaviour:
   CameraSwitch: {fileID: 317049948}
   camera1: {fileID: 1917892289}
   camera2: {fileID: 0}
+  camera3: {fileID: 0}
+  outlineHoverWidth: 7.34
 --- !u!114 &1782607492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15478,7 +15491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Outline
-  outlineMode: 0
+  outlineMode: 1
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 0
   precomputeOutline: 0
@@ -15938,6 +15951,8 @@ MonoBehaviour:
   CameraSwitch: {fileID: 317049948}
   camera1: {fileID: 677533157}
   camera2: {fileID: 1917892289}
+  camera3: {fileID: 0}
+  outlineHoverWidth: 7.34
 --- !u!114 &1860931528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16475,6 +16490,8 @@ MonoBehaviour:
   CameraSwitch: {fileID: 317049948}
   camera1: {fileID: 843214210747511456}
   camera2: {fileID: 0}
+  camera3: {fileID: 0}
+  outlineHoverWidth: 7.34
 --- !u!114 &1936667943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16487,7 +16504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Outline
-  outlineMode: 0
+  outlineMode: 1
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 0
   precomputeOutline: 0
@@ -17753,6 +17770,8 @@ MonoBehaviour:
   CameraSwitch: {fileID: 317049948}
   camera1: {fileID: 677533157}
   camera2: {fileID: 798086725}
+  camera3: {fileID: 1782607490}
+  outlineHoverWidth: 7.34
 --- !u!114 &2088662613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18032,6 +18051,8 @@ MonoBehaviour:
   CameraSwitch: {fileID: 317049948}
   camera1: {fileID: 3880853801570820639}
   camera2: {fileID: 603320343}
+  camera3: {fileID: 0}
+  outlineHoverWidth: 7.34
 --- !u!114 &2095670751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18044,7 +18065,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Outline
-  outlineMode: 0
+  outlineMode: 1
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 0
   precomputeOutline: 0
@@ -22236,7 +22257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Outline
-  outlineMode: 0
+  outlineMode: 1
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 0
   precomputeOutline: 0
@@ -22258,6 +22279,8 @@ MonoBehaviour:
   CameraSwitch: {fileID: 317049948}
   camera1: {fileID: 740491979}
   camera2: {fileID: 2095670747}
+  camera3: {fileID: 0}
+  outlineHoverWidth: 7.34
 --- !u!4 &5022354929389860418
 Transform:
   m_ObjectHideFlags: 0
