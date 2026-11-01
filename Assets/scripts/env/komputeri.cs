@@ -10,7 +10,9 @@ public class komputeri : MonoBehaviour
     public GameObject cur4;
     public bool isDone = false;
     public GameObject kartinka;
-
+    public AudioClip soundCamera;
+    public AudioSource audioSource;
+    public GameObject webca;
 
     private void Update()
     {
@@ -18,6 +20,9 @@ public class komputeri : MonoBehaviour
         {
             isDone = true;
             kartinka.SetActive(true);
+            audioSource.PlayOneShot(soundCamera);
+            webca.GetComponent<Outline>().enabled = true;
+            webca.GetComponent<MeshCollider>().enabled = true;
         }
     }
 }

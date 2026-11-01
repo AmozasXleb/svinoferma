@@ -15,15 +15,16 @@ public class kolishek : MonoBehaviour
         {
             //0.101
             //Vector3 pos = new Vector3(0f, 0.3f, 0f);
-            transform.localPosition = new Vector3(transform.localPosition.x, 0.099f, transform.localPosition.z);
+            transform.localPosition = new Vector3(transform.localPosition.x, 0.2f, transform.localPosition.z);
         }
         if (status == 1)
         {
-            transform.localPosition = new Vector3(transform.localPosition.x, 0.02699999f, transform.localPosition.z);
+            transform.localPosition = new Vector3(transform.localPosition.x, 0.135f, transform.localPosition.z);
         }
         if (status == 0)
         {
-            transform.localPosition = new Vector3(transform.localPosition.x, -0.044f, transform.localPosition.z);
+
+            transform.localPosition = new Vector3(transform.localPosition.x, 0.063f, transform.localPosition.z);
         }
     }
 

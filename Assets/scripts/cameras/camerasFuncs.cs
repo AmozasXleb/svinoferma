@@ -13,9 +13,10 @@ public class camerasFuncs : MonoBehaviour
     private void OnMouseDown()
     {
         //7.34
+            CheckCameraRay(camera1.GetComponentInChildren<Camera>(), camera1);
+            CheckCameraRay(camera2.GetComponentInChildren<Camera>(), camera2);
 
-        CheckCameraRay(camera1.GetComponentInChildren<Camera>(), camera1); // проверка, идет ли сигнал от камеры с которой мы смотрим
-        CheckCameraRay(camera2.GetComponentInChildren<Camera>(), camera2);
+
     }
 
     private void OnMouseEnter()
@@ -27,6 +28,17 @@ public class camerasFuncs : MonoBehaviour
     private void OnMouseExit()
     {
         gameObject.GetComponent<Outline>().OutlineWidth = 0f;
+    }
+
+    private System.Collections.IEnumerator SafeRenderNextFrame(Camera cam)
+    {
+        // Ждем, пока Unity полностью отрисует текущий кадр и интерфейс
+        yield return new WaitForEndOfFrame();
+
+        if (cam != null)
+        {
+            cam.Render(); // Теперь буферы не столкнутся друг с другом
+        }
     }
 
     //алгоритм проверки камер вообще:
@@ -48,11 +60,13 @@ public class camerasFuncs : MonoBehaviour
     //                вырубаем активность камеры которую заменили от греха подальше
     //                врубаем камеру которая врубается
 
-    void CheckCameraRay(Camera cam, GameObject cameraObject)
+    public void CheckCameraRay(Camera cam, GameObject cameraObject)
     {
-        if (cam == null && cameraObject == null) return; //на случай если развилки нет
         Debug.Log(cameraObject);
         Debug.Log(gameObject.name);
+        if (cam == null && cameraObject == null) return; //на случай если развилки нет
+        //Debug.Log(cameraObject);
+        //Debug.Log(gameObject.name);
 
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hit))
@@ -60,6 +74,10 @@ public class camerasFuncs : MonoBehaviour
             if (hit.transform == this.transform)
             {
                 CameraSwitch.UpdateActives();
+                cam.clearFlags = CameraClearFlags.SolidColor;
+                whatCameraAttechedTo.GetComponent<Camera>().clearFlags = CameraClearFlags.SolidColor;
+
+
 
                 if (CameraSwitch.fullScreen == true) // если все 4 камеры открыты
                 {
@@ -72,6 +90,7 @@ public class camerasFuncs : MonoBehaviour
                         {
                             if (CameraSwitch.ActiveCameras[i] == whatCameraAttechedTo)
                             {
+                                cam.clearFlags = CameraClearFlags.SolidColor;
                                 cam.rect = whatCameraAttechedTo.GetComponent<Camera>().rect;
                                 whatCameraAttechedTo.GetComponent<Camera>().rect = storeRect;
                             }
@@ -87,7 +106,10 @@ public class camerasFuncs : MonoBehaviour
                         {
                             if (CameraSwitch.ActiveCameras[i] == cameraObject.transform.GetChild(0).gameObject)
                             {
+                                SafeRenderNextFrame(whatCameraAttechedTo.GetComponent<Camera>());
                                 CameraSwitch.ActiveCameras[i] = whatCameraAttechedTo;
+
+
                                 //cameraObject.transform.GetChild(0).gameObject.SetActive(false);
                             }
                         }
@@ -104,6 +126,8 @@ public class camerasFuncs : MonoBehaviour
                         {
                             if (CameraSwitch.ActiveCameras[i] == whatCameraAttechedTo)
                             {
+                                cam.clearFlags = CameraClearFlags.SolidColor;
+
                                 cam.rect = whatCameraAttechedTo.GetComponent<Camera>().rect;
                                 whatCameraAttechedTo.GetComponent<Camera>().rect = storeRect;
                             }

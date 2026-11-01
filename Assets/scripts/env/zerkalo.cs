@@ -3,8 +3,9 @@ using UnityEngine;
 public class zerkalo : MonoBehaviour
 {
     public bool onKuh = true;
-    public camerasFuncs toKuhn;
-    public camerasFuncs toKomnt;
+    public GameObject kuhnCam;
+    public GameObject komnCam;
+    public cameraSwitch CameraSwitch;
 
 
     private void OnMouseEnter()
@@ -21,15 +22,33 @@ public class zerkalo : MonoBehaviour
     {
         if (onKuh)
         {
-            toKomnt.enabled = true;
-            toKuhn.enabled = false;
-            onKuh = false;
+            kuhnCam.SetActive(true);
+            kuhnCam.GetComponent<Camera>().rect = komnCam.GetComponent<Camera>().rect;
+            for (int i = 0; i < CameraSwitch.ActiveCameras.Count; i++)
+            {
+                if (CameraSwitch.ActiveCameras[i] == komnCam)
+                {
+                    CameraSwitch.ActiveCameras[i] = kuhnCam;
+                    onKuh = false;
+
+                    komnCam.SetActive(false);
+                }
+            }
         }
         else
         {
-            toKomnt.enabled = false;
-            toKuhn.enabled = true;
-            onKuh = true;
+            komnCam.SetActive(true);
+            komnCam.GetComponent<Camera>().rect = kuhnCam.GetComponent<Camera>().rect;
+            for (int i = 0; i < CameraSwitch.ActiveCameras.Count; i++)
+            {
+                if (CameraSwitch.ActiveCameras[i] == kuhnCam)
+                {
+                    CameraSwitch.ActiveCameras[i] = komnCam;
+                    onKuh = true;
+
+                    kuhnCam.SetActive(false);
+                }
+            }
         }
 
     }
